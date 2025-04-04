@@ -35,21 +35,21 @@ public class Spotify {
             driver.findElement(By.id("login-button")).click();
 
             // Handle age consent dialog
-            WebElement ageConsentButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='root']/div/div[2]/div/div/button[2]")));
+            WebElement ageConsentButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"root\"]/div/div/div/div/button[2]")));
             ageConsentButton.click();
 
             // Search for a song
-            WebElement searchField = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"main\"]/div/div[2]/div[1]/nav/div[1]/ul/li[2]/a")));
+            WebElement searchField = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@placeholder='What do you want to play?']")));
             searchField.click();
-            WebElement searchBar = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"main\"]/div/div[2]/div[3]/header/div[3]/div/div/form/input")));
+            WebElement searchBar = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@placeholder='What do you want to play?']")));
             searchBar.sendKeys("vikram" + Keys.ENTER);
 
             // Play a song
-            WebElement playButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"searchPage\"]/div/div/section[2]/div[2]/div/div/div/div[2]/div[1]/div/div[1]/div[1]/button")));
+            WebElement playButton = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[aria-label^='Play']")));
             playButton.click();
 
             // Pause the song
-            WebElement pauseButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"main\"]/div/div[2]/div[2]/footer/div[1]/div[2]/div/div[1]/button")));
+            WebElement pauseButton = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[data-testid='play-button'][aria-label='Pause']")));
             pauseButton.click();
 
             // Search for a podcast
